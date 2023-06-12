@@ -35,3 +35,13 @@ h2 {
 h3 {
     font-size: 2rem;
 }
+
+ul {
+    font-size: 5rem;
+    list-style-type: none;
+    font-weight: 700;
+}
+
+li {
+    padding: 0 20px;
+}

@@ -19,7 +19,7 @@ console.log('JS OK')
 const getUniqueRandomNumbers = (min, max, tot) => {
     const numbers = [];
 
-    while (numbers.lenght < tot) {
+    while (numbers.length < tot) {
         let randomNumber;
     do {
         randomNumber = Math.floor(Math.random() * (max + 1 - min)) + min;
@@ -33,7 +33,7 @@ const getUniqueRandomNumbers = (min, max, tot) => {
 const getUniqueRandomNumbersFromUser = (min, max, tot) => {
     const numbers = [];
 
-    while (numbers.lenght < tot) {
+    while (numbers.length < tot) {
         let userNumber;
     do {
         userNumber = parseInt(prompt(`Inserisci un numero da ${min} a ${max}`).trim());
@@ -71,24 +71,34 @@ console.log(numbers);
 
 // # Li inserisco in pagina
 let items = '';
-for (let i = 0; 1 < totalNumbers; i++) {
+for (let i = 0; i < totalNumbers; i++) {
     items += `<li>${numbers[i]}</li>`;
 }
 
 numberListElement.innerHTML = items;
 
 // # Countdown
-countdownElement.innerText = --time;
+countdownElement.innerText = time;
+
 const interval = setInterval(() => {
     if (time === 0) {
         clearInterval (interval);
-        numberListElement.className = 'd-block';
+        numberListElement.className = 'd-none';
+        play ();
     } else {
-        countdownElement.innerHTML = --time;
+        countdownElement.innerText = --time;
     }
 }, 1000);
 
-prompt('Inserisci un numero da 1 a 99!')
-// #2
-// #3
-// #4
+const play = () => {
+    // prompt numeri utenti
+    const userBet = getUniqueRandomNumbersFromUser(min, max, totalNumbers);
+    console.log('Numeri inseriti:', userBet);
+
+    const correctAnswers = [];
+    for (let i = 0; i < totalNumbers; i++) {
+        if (numbers.includes(userBet[i])) correctAnswers.push(userBet[i]);
+    }
+
+    alert(`Hai indovinato ${correctAnswers.length} numeri. (${correctAnswers})`)
+}

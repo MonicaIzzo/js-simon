@@ -36,7 +36,7 @@ const getUniqueRandomNumbersFromUser = (min, max, tot) => {
     while (numbers.lenght < tot) {
         let userNumber;
     do {
-        userNumber = parseInt(prompt(`Inserisci un numero da ${min} a ${max}`).trim);
+        userNumber = parseInt(prompt(`Inserisci un numero da ${min} a ${max}`).trim());
     }   while (isNaN(userNumber) || userNumber < min || userNumber > max);
         if (!numbers.includes(userNumber)) numbers.push(userNumber);
     }
@@ -48,8 +48,17 @@ const getUniqueRandomNumbersFromUser = (min, max, tot) => {
 ---------------------------------------*/
 
 
-// #0
-// #1
+// # Recupero gli elementi dal DOM
+const countdownElement = document.getElementById('countdown');
+const numberListElement = document.getElementById('numbers-list');
+
+// # Setto variabili di comodo
+
+const min = 1;
+const max = 100;
+const totalNumbers = 5;
+let time = 5;
+
 prompt('Inserisci un numero da 1 a 99!')
 // #2
 // #3

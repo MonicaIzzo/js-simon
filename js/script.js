@@ -11,6 +11,43 @@ Consigli del giorno:
 
 console.log('JS OK')
 
+/*---------------------------------------
+        FUNZIONI
+---------------------------------------*/
+// # FUNZIONE PER GENRARE I NUMERI RANDOM
+
+const getUniqueRandomNumbers = (min, max, tot) => {
+    const numbers = [];
+
+    while (numbers.lenght < tot) {
+        let randomNumber;
+    do {
+        randomNumber = Math.floor(Math.random() * (max + 1 - min)) + min;
+    }   while (numbers.includes(randomNumber));
+        numbers.push(randomNumber);
+    }
+   return numbers; 
+} 
+
+// # FUNZIONE PER CHIEDERE i 5 NUMERI ALL'UTENTE
+const getUniqueRandomNumbersFromUser = (min, max, tot) => {
+    const numbers = [];
+
+    while (numbers.lenght < tot) {
+        let userNumber;
+    do {
+        userNumber = parseInt(prompt(`Inserisci un numero da ${min} a ${max}`).trim);
+    }   while (isNaN(userNumber) || userNumber < min || userNumber > max);
+        if (!numbers.includes(userNumber)) numbers.push(userNumber);
+    }
+   return numbers; 
+}     
+
+/*---------------------------------------
+        OPERAZIONI PRELIMINARI
+---------------------------------------*/
+
+
 // #0
 // #1
 prompt('Inserisci un numero da 1 a 99!')

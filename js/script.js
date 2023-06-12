@@ -59,7 +59,20 @@ const max = 100;
 const totalNumbers = 5;
 let time = 5;
 
-prompt('Inserisci un numero da 1 a 99!')
-// #2
-// #3
-// #4
+
+/*---------------------------------------
+        LOGICA
+---------------------------------------*/
+
+// # Genero i numeri causuali
+
+const numbers = getUniqueRandomNumbers (min, max, totalNumbers);
+console.log(numbers);
+
+// # Li inserisco in pagina
+let items = '';
+for (let i = 0; 1 < totalNumbers; i++) {
+    items += `<li>${numbers[i]}</li>`;
+}
+
+numberListElement.innerHTML = items;

@@ -76,3 +76,19 @@ for (let i = 0; 1 < totalNumbers; i++) {
 }
 
 numberListElement.innerHTML = items;
+
+// # Countdown
+countdownElement.innerText = --time;
+const interval = setInterval(() => {
+    if (time === 0) {
+        clearInterval (interval);
+        numberListElement.className = 'd-block';
+    } else {
+        countdownElement.innerHTML = --time;
+    }
+}, 1000);
+
+prompt('Inserisci un numero da 1 a 99!')
+// #2
+// #3
+// #4

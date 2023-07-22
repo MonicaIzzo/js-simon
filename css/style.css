@@ -2,46 +2,39 @@
     GENERAL STYLES
 ********************************************/
 
-
 /* Reset CSS */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /********************************************
     UTILITIES
 ********************************************/
 .debug {
-    border: 2px dotted red;
+  border: 2px dotted red;
 }
-
 
 /********************************************
     LAYOUT
 ********************************************/
-
 h1 {
-    font-size: 5rem;
-    font-weight: 700;
+  font-size: 5rem;
+  font-weight: 700;
 }
-
 h2 {
-    font-size: 2rem;
-    color: red;
+  font-size: 2rem;
+  color: red;
 }
-
 h3 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
-
 ul {
-    font-size: 5rem;
-    list-style-type: none;
-    font-weight: 700;
+  font-size: 5rem;
+  list-style-type: none;
+  font-weight: 700;
 }
-
 li {
-    padding: 0 20px;
+  padding: 0 20px;
 }

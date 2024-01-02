@@ -19,6 +19,10 @@ console.log('JS OK')
 // # Recupero gli elementi dal DOM
 const countdownElement = document.getElementById('countdown');
 const numberListElement = document.getElementById('numbers-list');
+const form = document.getElementById('solutions-from');
+const inputs = document.querySelectorAll('input');
+const button = document.querySelector('button');
+const scoreElements = document.getElementById('score');
 
 // # Setto variabili di comodo
 
@@ -26,6 +30,7 @@ const min = 1;
 const max = 100;
 const totalNumbers = 5;
 let time = 5;
+scoreElements.innerHTML = '';
 
 
 /*---------------------------------------
@@ -52,23 +57,36 @@ const interval = setInterval(() => {
     if (time === 0) {
         clearInterval (interval);
         numberListElement.className = 'd-none';
-        setTimeout (play, 200)
+        form.classList.remove('d-none');
     } else {
         countdownElement.innerText = --time;
     }
 }, 1000);
 
-const play = () => {
-    // prompt numeri utenti
-    const userGuesses = getUniqueRandomNumbersFromUser(min, max, totalNumbers);
-    console.log('Numeri inseriti:', userGuesses);
 
-    const correctAnswers = [];
+// # Metto in ascolto il form
+form.addEventListener('submit', e => {
+    // Blocco il form
+    e.preventDefault();
+
+    // Recuperare i valori
+    const userGuesses = [];
+    
+    for (let i = 0; i < inputs.length; i++) {
+    const value = parseInt(inputs[i].value);
+    if(!isNaN(value) && value >= min && value <= max && !userGuesses.includes(value)) {
+        userGuesses.push(value);
+    }
+}
+// validazione
+if (userGuesses.length !== totalNumbers) {
+    alert('Sono stati inseriti valori non validi')
+    return
+}
+ const correctAnswers = [];
     for (let i = 0; i < totalNumbers; i++) {
         if (numbers.includes(userGuesses[i])) correctAnswers.push(userGuesses[i]);
     }
 
-    alert(`Hai indovinato ${correctAnswers.length} numeri. (${correctAnswers})`)
-}
-
-pr
+    scoreElements.innerHTML = `Hai indovinato <strong>${correctAnswers.length}</strong> numero/i. (${correctAnswers})`;
+})
